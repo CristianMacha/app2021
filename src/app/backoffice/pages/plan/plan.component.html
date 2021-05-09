@@ -1,0 +1,53 @@
+<div class="card card-outline card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Plan academico</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <select class="form-control" [formControl]="career" (change)="getAll()">
+            <option *ngFor="let c of allCareer" [value]="c.acronimo">{{c.name}}</option>
+        </select>
+
+        <div class="row mt-1">
+            <div class="col-md-4">
+                <div class="card card-outline card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">Materias seleccionadas</h3>
+                    </div>
+                    <div class="card-body" *ngIf="selectedMaterias.length >= 1">
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item" *ngFor="let materia of selectedMaterias; let i = index;">
+                                <b>{{materia.asignatura}}</b> <a class="float-right">
+                                    <button class="btn btn-outline-danger btn-sm"
+                                        (click)="removeMateria(i, materia)">Quitar</button>
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary btn-sm">Guardar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card card-outline card-info">
+                    <div class="card-header">
+                        <h3 class="card-title">Materias</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-unbordered mb-3">
+                            <li class="list-group-item" *ngFor="let materia of materias; let i = index;">
+                                <b>{{materia.asignatura}}</b> <a class="float-right">
+                                    <button class="btn btn-outline-primary btn-sm"
+                                        (click)="addMateria(i, materia)">Agregar</button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

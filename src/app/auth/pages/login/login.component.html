@@ -1,0 +1,43 @@
+<div class="login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="../../index2.html"><b>Admin</b>LTE</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Iniciar sesion</p>
+
+                <form [formGroup]="formLogin">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="mail" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                            required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-block" [disabled]="formLogin.invalid"
+                                (click)="login()">Iniciar sesion</button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="mb-0">
+                    <a [routerLink]="['/register']" class="text-center">No tienes una cuenta?</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="../../index2.html"><b>Admin</b>LTE</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Registro</p>
+
+                <form [formGroup]="formRegister">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Matricula" formControlName="matricula"
+                            required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="name" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email" formControlName="mail" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" placeholder="Contraseña" formControlName="password"
+                            required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-block" [disabled]="formRegister.invalid"
+                            (click)="register()">Registrarse</button>
+                    </div>
+                </form>
+
+                <a [routerLink]="['/login']" class="text-center">Ya tienes una cuenta?</a>
+            </div>
+        </div>
+    </div>
+</div>
