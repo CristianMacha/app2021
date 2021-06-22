@@ -8,15 +8,12 @@
         </div>
     </div>
     <div class="card-body">
-        <select class="form-control" [formControl]="career" (change)="getAll()">
-            <option *ngFor="let c of allCareer" [value]="c.acronimo">{{c.name}}</option>
-        </select>
 
         <div class="row mt-1">
             <div class="col-md-4">
                 <div class="card card-outline card-success">
                     <div class="card-header">
-                        <h3 class="card-title">Materias seleccionadas</h3>
+                        <h3 class="card-title">Materias cursadas</h3>
                     </div>
                     <div class="card-body" *ngIf="selectedMaterias.length >= 1">
                         <ul class="list-group list-group-unbordered mb-3">
@@ -27,7 +24,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <button class="btn btn-primary btn-sm">Guardar</button>
+                        <button class="btn btn-primary btn-sm" (click)="enrollment()">Guardar</button>
                     </div>
                 </div>
             </div>

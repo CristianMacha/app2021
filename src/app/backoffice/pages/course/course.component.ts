@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@core/services/auth.service';
+import { ProgramService } from '@core/services/program.service';
 
 @Component({
   selector: 'app-course',
@@ -6,7 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course.component.scss'],
 })
 export class CourseComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private programaDisponibleService: ProgramService,
+    private authService: AuthService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getProgramas();
+  }
+
+  getProgramas() {
+    this.programaDisponibleService
+      .programaDispponible(this.authService.user.carrera)
+      .subscribe(
+        (data) => console.log(data),
+        (error) => console.error(error)
+      );
+  }
 }

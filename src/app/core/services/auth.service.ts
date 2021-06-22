@@ -6,12 +6,15 @@ import { of } from 'rxjs';
 
 import { IAuthLogin, IAuthRegister } from '@core/interfaces/auth.interface';
 import { environment } from '../../../environments/environment';
+import { User } from '@core/models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   apiUrl: string;
+  user: User = new User();
+
   constructor(private http: HttpClient, private router: Router) {
     this.apiUrl = `${environment.apiUrl}/auth`;
   }
@@ -31,10 +34,19 @@ export class AuthService {
    * @returns token
    */
   login(login: IAuthLogin) {
-    return this.http.post(`${this.apiUrl}/login`, login).pipe(
-      tap((resp: any) => localStorage.setItem('x-token', resp.token)),
+    return this.http.post<User>(`${this.apiUrl}/login`, login).pipe(
+      tap((resp) => {
+        localStorage.setItem('x-token', resp.token);
+        localStorage.setItem('x-name', resp.name);
+        localStorage.setItem('x-matricula', resp.matricula);
+        this.user = resp;
+        console.log(resp);
+      }),
       map((resp: any) => (resp.token ? true : false)),
-      catchError((err) => of(false))
+      catchError((err) => {
+        localStorage.clear();
+        return of(false);
+      })
     );
   }
 

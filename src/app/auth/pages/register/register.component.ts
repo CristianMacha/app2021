@@ -15,6 +15,12 @@ import {
 export class RegisterComponent implements OnInit {
   formRegister: FormGroup;
 
+  allCareer = [
+    { acronimo: 'ICC', name: 'INGENIERIA EN CIENCIAS DE LA COMPUTACION' },
+    { acronimo: 'LCC', name: 'LICENCIATURA EN CIENCIAS DE LA COMPUTACION' },
+    { acronimo: 'ITI', name: 'INGENIERIA EN TECNOLOGIAS DE LA INFORMACION' },
+  ];
+
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder
@@ -23,6 +29,7 @@ export class RegisterComponent implements OnInit {
       matricula: new FormControl('', [Validators.required]),
       name: new FormControl('', [Validators.required]),
       mail: new FormControl('', [Validators.required, Validators.email]),
+      carrera: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
     });
   }

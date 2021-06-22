@@ -3,8 +3,10 @@ import { FormControl } from '@angular/forms';
 
 import { IAacademicPlan } from '@core/interfaces/academic-plan.interface';
 import { AcademicPlan } from '@core/models/academic-plan.model';
+import { Enrollment } from '@core/models/enrollment.model';
 import { Materia } from '@core/models/materia.model';
 import { AcademicPlanService } from '@core/services/academic-plan.service';
+import { AuthService } from '@core/services/auth.service';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -13,7 +15,10 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./plan.component.scss'],
 })
 export class PlanComponent implements OnInit {
-  constructor(private academicPlanService: AcademicPlanService) {}
+  constructor(
+    private academicPlanService: AcademicPlanService,
+    private authService: AuthService,
+    ) {}
 
   allCareer = [
     { acronimo: 'ICC', name: 'INGENIERIA EN CIENCIAS DE LA COMPUTACION' },
@@ -25,11 +30,13 @@ export class PlanComponent implements OnInit {
 
   materias: Materia[] = [];
   selectedMaterias: Materia[] = [];
+  enrollmentM: Enrollment = new Enrollment();
 
   career: FormControl = new FormControl('ICC');
 
   ngOnInit(): void {
     this.getAll();
+    this.getSubjectsStudied();
   }
 
   /**
@@ -37,12 +44,40 @@ export class PlanComponent implements OnInit {
    */
   getAll() {
     this.academicPlanService
-      .getAllCareer(this.career.value)
+      .getAllCareer(this.authService.user.carrera)
       .pipe(finalize(() => (this.selectedMaterias = [])))
       .subscribe(
         (data) => (this.materias = data.materias),
         (error) => console.error(error)
       );
+  }
+
+  /**
+   * Matricular usuario
+   */
+  enrollment() {
+    this.enrollmentM.matricula = localStorage.getItem('x-matricula');
+    this.enrollmentM.carrera = this.career.value;
+
+    this.selectedMaterias.forEach((materia) => {
+      this.enrollmentM.materias_nuevas.push(materia.mat_id);
+    });
+    console.log(this.enrollmentM);
+
+    this.academicPlanService.enrollment(this.enrollmentM).subscribe(
+      (data) => console.log(data),
+      (error) => console.error(error)
+    );
+  }
+
+  /**
+   * Obtener cursos cursados
+   */
+  getSubjectsStudied() {
+    this.academicPlanService.getSubjectsStudied().subscribe(
+      (data:any) => this.selectedMaterias = data.materias,
+      (error) => console.error(error)
+    );
   }
 
   /**

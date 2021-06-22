@@ -19,12 +19,18 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Nombre" formControlName="name" required>
+                        <input type="text"  class="form-control" placeholder="Nombre" formControlName="name" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-control" formControlName="carrera">
+                            <option *ngFor="let career of allCareer" [value]="career.acronimo">{{career.name}}</option>
+                        </select>
+                        
                     </div>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email" formControlName="mail" required>

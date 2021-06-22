@@ -4,6 +4,7 @@ import { IAacademicPlan } from '@core/interfaces/academic-plan.interface';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
+import { Enrollment } from '@core/models/enrollment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +17,39 @@ export class AcademicPlanService {
   }
 
   /**
-   * ListarCarreras
+   * Listar carreras
    * @param career Carrera
    * @returns any
    */
   getAllCareer(career: 'ICC' | 'LCC' | 'ITI'): Observable<IAacademicPlan> {
     return this.http.get<IAacademicPlan>(`${this.apiUrl}?carrera=${career}`);
+  }
+
+  /**
+   * Listar materias cursadas por matricula
+   * @returns Lista de materias cursadas
+   */
+  getSubjectsStudied() {
+    return this.http.get(
+      `${this.apiUrl}/${localStorage.getItem('x-matricula')}`,
+      {
+        headers: { authorization: `Bearer ${localStorage.getItem('x-token')}` },
+      }
+    );
+  }
+
+  /**
+   * Matricular usuario
+   * @param enrollment Matricula
+   * @returns any
+   */
+  enrollment(enrollment: Enrollment) {
+    return this.http.patch(
+      `${this.apiUrl}/${localStorage.getItem('x-matricula')}`,
+      enrollment,
+      {
+        headers: { authorization: `Bearer ${localStorage.getItem('x-token')}` },
+      }
+    );
   }
 }
