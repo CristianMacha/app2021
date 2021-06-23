@@ -35,34 +35,35 @@ export class PlanComponent implements OnInit {
   career: FormControl = new FormControl('ICC');
 
   ngOnInit(): void {
-    this.getAll();
+    // this.getAll();
     this.getSubjectsStudied();
   }
 
   /**
    * Listar planes academicos
    */
-  getAll() {
-    this.academicPlanService
-      .getAllCareer(this.authService.user.carrera)
-      .pipe(finalize(() => (this.selectedMaterias = [])))
-      .subscribe(
-        (data) => (this.materias = data.materias),
-        (error) => console.error(error)
-      );
-  }
+  // getAll() {
+  //   console.log(this.authService.user);
+    
+  //   this.academicPlanService
+  //     .getAllCareer(this.authService.user.carrera)
+  //     .pipe(finalize(() => (this.selectedMaterias = [])))
+  //     .subscribe(
+  //       (data) => {(this.materias = data.materias); console.log(data)},
+  //       (error) => console.error(error)
+  //     );
+  // }
 
   /**
    * Matricular usuario
    */
   enrollment() {
     this.enrollmentM.matricula = localStorage.getItem('x-matricula');
-    this.enrollmentM.carrera = this.career.value;
+    this.enrollmentM.carrera = localStorage.getItem('x-carrera');
 
     this.selectedMaterias.forEach((materia) => {
       this.enrollmentM.materias_nuevas.push(materia.mat_id);
     });
-    console.log(this.enrollmentM);
 
     this.academicPlanService.enrollment(this.enrollmentM).subscribe(
       (data) => console.log(data),
@@ -75,7 +76,12 @@ export class PlanComponent implements OnInit {
    */
   getSubjectsStudied() {
     this.academicPlanService.getSubjectsStudied().subscribe(
-      (data:any) => this.selectedMaterias = data.materias,
+      (data:any) => {
+        console.log(data);
+        
+        this.materias = data.materias.filter(materia => materia.aprobada = true)
+        this.selectedMaterias = data.materias.filter(materia => materia.aprobada = false)
+      },
       (error) => console.error(error)
     );
   }

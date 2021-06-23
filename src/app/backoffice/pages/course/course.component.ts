@@ -8,9 +8,10 @@ import { ProgramService } from '@core/services/program.service';
   styleUrls: ['./course.component.scss'],
 })
 export class CourseComponent implements OnInit {
+  materiasOfertadas: any = {};
+
   constructor(
     private programaDisponibleService: ProgramService,
-    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -19,9 +20,10 @@ export class CourseComponent implements OnInit {
 
   getProgramas() {
     this.programaDisponibleService
-      .programaDispponible(this.authService.user.carrera)
+      .programaDispponible(localStorage.getItem('x-carrera'))
       .subscribe(
-        (data) => console.log(data),
+        (data) => {(this.materiasOfertadas = data); console.log(data);
+        },
         (error) => console.error(error)
       );
   }

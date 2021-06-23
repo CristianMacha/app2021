@@ -13,7 +13,7 @@ export class ProgramService {
     this.apiUrl = `${environment.apiUrl}/programa-disponible`;
   }
 
-  programaDispponible(career: 'ICC' | 'LCC' | 'ITI') {
+  programaDispponible(career: string) {
     return this.http.get(`${this.apiUrl}?carrera=${career}`, {
       headers: { authorization: `Bearer ${localStorage.getItem('x-token')}` },
     });
