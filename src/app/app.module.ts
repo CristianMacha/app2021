@@ -9,6 +9,14 @@ import { environment } from '../environments/environment';
 import { AuthModule } from './auth/auth.module';
 import { BackofficeModule } from './backoffice/backoffice.module';
 import { FrontofficeModule } from './frontoffice/frontoffice.module';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +33,7 @@ import { FrontofficeModule } from './frontoffice/frontoffice.module';
     AuthModule,
     BackofficeModule,
     FrontofficeModule,
+    FullCalendarModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent],

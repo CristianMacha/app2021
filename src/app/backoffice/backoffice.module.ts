@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PlanComponent } from './pages/plan/plan.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     PlanComponent,
   ],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FullCalendarModule,
+  ],
   providers: [HttpClient],
 })
 export class BackofficeModule {}
