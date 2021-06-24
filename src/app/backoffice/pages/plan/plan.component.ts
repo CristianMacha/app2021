@@ -17,8 +17,8 @@ import { finalize } from 'rxjs/operators';
 export class PlanComponent implements OnInit {
   constructor(
     private academicPlanService: AcademicPlanService,
-    private authService: AuthService,
-    ) {}
+    private authService: AuthService
+  ) {}
 
   allCareer = [
     { acronimo: 'ICC', name: 'INGENIERIA EN CIENCIAS DE LA COMPUTACION' },
@@ -29,6 +29,7 @@ export class PlanComponent implements OnInit {
   academicPlan: AcademicPlan = new AcademicPlan();
 
   materias: Materia[] = [];
+  materiasAll: Materia[] = [];
   selectedMaterias: Materia[] = [];
   enrollmentM: Enrollment = new Enrollment();
 
@@ -44,7 +45,7 @@ export class PlanComponent implements OnInit {
    */
   // getAll() {
   //   console.log(this.authService.user);
-    
+
   //   this.academicPlanService
   //     .getAllCareer(this.authService.user.carrera)
   //     .pipe(finalize(() => (this.selectedMaterias = [])))
@@ -75,15 +76,26 @@ export class PlanComponent implements OnInit {
    * Obtener cursos cursados
    */
   getSubjectsStudied() {
-    this.academicPlanService.getSubjectsStudied().subscribe(
-      (data:any) => {
-        console.log(data);
-        
-        this.materias = data.materias.filter(materia => materia.aprobada = true)
-        this.selectedMaterias = data.materias.filter(materia => materia.aprobada = false)
-      },
-      (error) => console.error(error)
-    );
+    this.academicPlanService
+      .getSubjectsStudied()
+      .pipe(
+        finalize(() => {
+          const array1 = this.materiasAll.filter(
+            (materia) => materia.aprobada == true
+          );
+          const array2 = this.materiasAll.filter(
+            (materia) => materia.aprobada == false
+          );
+          this.selectedMaterias = array1;
+          this.materias = array2;
+        })
+      )
+      .subscribe(
+        (data) => {
+          this.materiasAll = data.materias;
+        },
+        (error) => console.error(error)
+      );
   }
 
   /**

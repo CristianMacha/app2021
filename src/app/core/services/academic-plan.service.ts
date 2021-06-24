@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { Enrollment } from '@core/models/enrollment.model';
+import { Materia } from '@core/models/materia.model';
+import { AcademicPlan } from '@core/models/academic-plan.model';
 
 @Injectable({
   providedIn: 'root',
@@ -30,10 +32,10 @@ export class AcademicPlanService {
    * @returns Lista de materias cursadas
    */
   getSubjectsStudied() {
-    return this.http.get(
+    return this.http.get<AcademicPlan>(
       `${this.apiUrl}/${localStorage.getItem('x-matricula')}`,
       {
-        headers: { authorization: `Bearer ${localStorage.getItem('x-token')}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem('x-token')}` },
       }
     );
   }
@@ -44,6 +46,8 @@ export class AcademicPlanService {
    * @returns any
    */
   enrollment(enrollment: Enrollment) {
+    console.log(enrollment);
+    
     return this.http.patch(
       `${this.apiUrl}/${localStorage.getItem('x-matricula')}`,
       enrollment,
