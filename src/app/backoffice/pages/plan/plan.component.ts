@@ -92,6 +92,8 @@ export class PlanComponent implements OnInit {
       )
       .subscribe(
         (data) => {
+          console.log('xd', data);
+          
           this.materiasAll = data.materias;
         },
         (error) => console.error(error)

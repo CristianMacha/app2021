@@ -11,6 +11,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PlanComponent } from './pages/plan/plan.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { OrganizeComponent } from './pages/organize/organize.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     NavbarComponent,
     SidebarComponent,
     PlanComponent,
+    OrganizeComponent,
   ],
   imports: [
     CommonModule,
