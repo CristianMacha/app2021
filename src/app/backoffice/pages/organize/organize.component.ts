@@ -7,6 +7,9 @@ import {
 } from '@angular/forms';
 import { MateriasO, Organize } from '@core/models/materia.model';
 import { HorarioService } from '@core/services/horario.service';
+import { CalendarOptions } from '@fullcalendar/angular';
+import listPlugin from '@fullcalendar/list';
+import esLocale from '@fullcalendar/core/locales/es';
 
 @Component({
   selector: 'app-organize',
@@ -18,6 +21,19 @@ export class OrganizeComponent implements OnInit {
   materiasO: MateriasO[] = [];
   organize!: Organize;
   matricula: string;
+
+  calendarOptions: CalendarOptions = {
+    plugins: [listPlugin],
+    locale: esLocale,
+    initialView: 'listWeek',
+    events: [
+      {
+        title: ':V',
+        date: '2021-06-25 10:00',
+
+      },
+    ],
+  };
 
   constructor(
     private formBuilder: FormBuilder,
