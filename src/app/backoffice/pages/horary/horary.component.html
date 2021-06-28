@@ -1,1 +1,729 @@
-<full-calendar [options]="calendarOptions"></full-calendar>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 10px">Hora</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miercoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sabado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>7:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["7:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["7:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["7:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["7:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["7:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["7:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["7:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["7:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["7:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["7:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["7:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["7:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>8:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["8:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["8:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["8:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["8:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["8:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["8:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["8:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["8:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["8:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["8:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["8:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["8:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>9:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["9:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["9:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["9:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["9:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["9:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["9:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["9:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["9:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["9:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["9:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["9:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["9:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>10:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["10:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["10:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["10:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["10:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["10:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["10:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["10:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["10:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["10:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["10:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["10:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["10:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>11:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["11:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["11:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["11:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["11:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["11:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["11:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["11:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["11:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["11:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["11:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["11:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["11:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>12:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["12:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["12:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["12:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["12:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["12:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["12:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["12:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["12:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["12:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["12:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["12:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["12:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>13:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["13:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["13:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["13:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["13:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["13:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["13:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["13:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["13:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["13:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["13:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["13:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["13:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>14:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["4:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["14:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["14:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["14:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["14:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["14:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["14:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["14:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["14:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["14:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["14:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["14:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>15:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["15:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["15:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["15:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["15:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["15:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["15:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["15:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["15:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["15:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["15:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["15:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["15:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>16:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["16:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["16:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["16:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["16:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["16:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["16:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["16:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["16:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["16:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["16:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["16:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["16:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>17:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["17:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["17:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["17:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["17:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["17:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["17:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["17:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["17:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["17:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["17:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["17:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["17:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>18:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["18:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["18:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["18:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["18:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["18:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["18:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["18:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["18:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["18:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["18:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["18:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["18:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>19:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["19:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["19:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["19:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["19:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["19:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["19:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["19:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["19:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["19:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["19:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["19:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["19:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>20:00</td>
+            <td>
+                <div>
+                    {{semana?.Lunes["20:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Lunes["20:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Martes["20:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Martes["20:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Miercoles["20:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Miercoles["20:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Jueves["20:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Jueves["20:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Viernes["20:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Viernes["20:00"]?.profesor || '-'}}
+                </div>
+            </td>
+            <td>
+                <div>
+                    {{semana?.Sabado["20:00"]?.nombre_materia || ''}}
+                </div>
+                <div>
+                    Prf: {{semana?.Sabado["20:00"]?.profesor || '-'}}
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

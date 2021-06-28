@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarOptions } from '@fullcalendar/angular';
+import { HorarioService } from '@core/services/horario.service';
+import { ISemana } from '../organize/organize.component';
 
 @Component({
   selector: 'app-horary',
   templateUrl: './horary.component.html',
-  styleUrls: ['./horary.component.scss']
+  styleUrls: ['./horary.component.scss'],
 })
 export class HoraryComponent implements OnInit {
-  
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth'
-  };
-  
-  constructor() { }
+  semana: ISemana;
 
+  constructor(private _horarioService: HorarioService) {}
   ngOnInit(): void {
+    this.miHorario();
   }
 
+  miHorario() {
+    this._horarioService.miHorario().subscribe(
+      (data: any) => {
+        this.semana = data;
+        console.log(data);
+      },
+      (error) => console.error(error)
+    );
+  }
 }

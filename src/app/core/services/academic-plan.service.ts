@@ -46,8 +46,6 @@ export class AcademicPlanService {
    * @returns any
    */
   enrollment(enrollment: Enrollment) {
-    console.log(enrollment);
-    
     return this.http.patch(
       `${this.apiUrl}/${localStorage.getItem('x-matricula')}`,
       enrollment,

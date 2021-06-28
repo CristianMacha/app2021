@@ -6,10 +6,17 @@ import {
   Validators,
 } from '@angular/forms';
 import { MateriasO, Organize } from '@core/models/materia.model';
+import { AcademicPlanService } from '@core/services/academic-plan.service';
 import { HorarioService } from '@core/services/horario.service';
-import { CalendarOptions } from '@fullcalendar/angular';
-import listPlugin from '@fullcalendar/list';
-import esLocale from '@fullcalendar/core/locales/es';
+
+export interface ISemana {
+  Lunes: Object;
+  Martes: Object;
+  Miercoles: Object;
+  Jueves: Object;
+  Viernes: Object;
+  Sabado: Object;
+}
 
 @Component({
   selector: 'app-organize',
@@ -21,19 +28,9 @@ export class OrganizeComponent implements OnInit {
   materiasO: MateriasO[] = [];
   organize!: Organize;
   matricula: string;
+  semana: ISemana;
 
-  calendarOptions: CalendarOptions = {
-    plugins: [listPlugin],
-    locale: esLocale,
-    initialView: 'listWeek',
-    events: [
-      {
-        title: ':V',
-        date: '2021-06-25 10:00',
-
-      },
-    ],
-  };
+  showTable: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,7 +46,6 @@ export class OrganizeComponent implements OnInit {
   ngOnInit(): void {}
 
   planificar() {
-    const xd = { ...this.organizeForm.value };
     this.organize = {
       ...this.organizeForm.value,
       matricula: this.matricula,
@@ -58,6 +54,16 @@ export class OrganizeComponent implements OnInit {
     console.log(this.organize);
 
     this._horarioService.enviar(this.organize).subscribe(
+      (data: any) => {
+        this.semana = data;
+        this.showTable = true;
+      },
+      (error) => console.error(error)
+    );
+  }
+
+  aceptarPlan() {
+    this._horarioService.aceptarHorario(this.semana).subscribe(
       (data) => console.log(data),
       (error) => console.error(error)
     );

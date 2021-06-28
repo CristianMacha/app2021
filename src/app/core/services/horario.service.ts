@@ -19,4 +19,23 @@ export class HorarioService {
       headers: { Authorization: `Bearer ${localStorage.getItem('x-token')}` },
     });
   }
+
+  aceptarHorario(data: any) {
+    return this.http.post(
+      `${this.apiUrl}/${localStorage.getItem('x-matricula')}`,
+      data,
+      {
+        headers: { authorization: `Bearer ${localStorage.getItem('x-token')}` },
+      }
+    );
+  }
+
+  miHorario() {
+    return this.http.get(
+      `${this.apiUrl}/${localStorage.getItem('x-matricula')}`,
+      {
+        headers: { authorization: `Bearer ${localStorage.getItem('x-token')}` },
+      }
+    );
+  }
 }

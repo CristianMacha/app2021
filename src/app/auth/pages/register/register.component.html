@@ -9,50 +9,33 @@
                 <p class="login-box-msg">Registro</p>
 
                 <form [formGroup]="formRegister">
-                    <div class="input-group mb-3">
+                    <div class="form-group">
+                        <label>Matricula</label>
                         <input type="text" class="form-control" placeholder="Matricula" formControlName="matricula"
                             required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
                     </div>
-                    <div class="input-group mb-3">
-                        <input type="text"  class="form-control" placeholder="Nombre" formControlName="name" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" placeholder="Nombre" formControlName="name" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="form-group">
+                        <label>Carrera</label>
                         <select class="form-control" formControlName="carrera">
                             <option *ngFor="let career of allCareer" [value]="career.acronimo">{{career.name}}</option>
                         </select>
-                        
                     </div>
-                    <div class="input-group mb-3">
+
+                    <div class="form-group">
+                        <label>Correo</label>
                         <input type="email" class="form-control" placeholder="Email" formControlName="mail" required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Contraseña" formControlName="password"
-                            required>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary btn-block" [disabled]="formRegister.invalid"
-                            (click)="register()">Registrarse</button>
+                        <label>Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Contraseña" formControlName="password"
+                            required>
                     </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-2" [disabled]="formRegister.invalid"
+                        (click)="register()">Registrarse</button>
                 </form>
 
                 <a [routerLink]="['/login']" class="text-center">Ya tienes una cuenta?</a>

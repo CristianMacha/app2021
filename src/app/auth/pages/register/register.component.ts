@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -40,9 +41,12 @@ export class RegisterComponent implements OnInit {
    * Registro de usaurio
    */
   register() {
-    this.authService.register(this.formRegister.value).subscribe(
-      (data) => console.log(data),
-      (error) => console.error(error)
-    );
+    this.authService
+      .register(this.formRegister.value)
+      .pipe(finalize(() => this.formRegister.reset()))
+      .subscribe(
+        (data) => console.log(data),
+        (error) => console.error(error)
+      );
   }
 }
