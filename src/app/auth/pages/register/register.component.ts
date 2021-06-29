@@ -15,6 +15,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class RegisterComponent implements OnInit {
   formRegister: FormGroup;
+  registrado: boolean = false;
 
   allCareer = [
     { acronimo: 'ICC', name: 'INGENIERIA EN CIENCIAS DE LA COMPUTACION' },
@@ -27,11 +28,17 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.formRegister = this.formBuilder.group({
-      matricula: new FormControl('', [Validators.required, Validators.maxLength(9)]),
+      matricula: new FormControl('', [
+        Validators.required,
+        Validators.minLength(9),
+      ]),
       name: new FormControl('', [Validators.required]),
       mail: new FormControl('', [Validators.required, Validators.email]),
       carrera: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
     });
   }
 
@@ -45,7 +52,10 @@ export class RegisterComponent implements OnInit {
       .register(this.formRegister.value)
       .pipe(finalize(() => this.formRegister.reset()))
       .subscribe(
-        (data) => console.log(data),
+        (data) => {
+          console.log(data);
+          this.registrado = true;
+        },
         (error) => console.error(error)
       );
   }

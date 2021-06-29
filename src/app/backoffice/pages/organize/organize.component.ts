@@ -54,6 +54,8 @@ export class OrganizeComponent implements OnInit {
     this._horarioService.enviar(this.organize).subscribe(
       (data: any) => {
         this.semana = data;
+        console.log(data);
+        
         this.quitarMateria();
         this.showTable = true;
       },

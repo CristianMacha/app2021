@@ -13,6 +13,7 @@
                         <label>Matricula</label>
                         <input type="text" class="form-control" placeholder="Matricula" formControlName="matricula"
                             required>
+                            <span>9 caracteres.</span>
                     </div>
                     <div class="form-group">
                         <label>Nombre</label>
@@ -33,12 +34,13 @@
                         <label>Contraseña</label>
                         <input type="password" class="form-control" placeholder="Contraseña" formControlName="password"
                             required>
+                        <span>Minimo 10 caracteres.</span>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block mt-2" [disabled]="formRegister.invalid"
                         (click)="register()">Registrarse</button>
                 </form>
 
-                <div class="alert alert-success alert-dismissible mt-2">
+                <div class="alert alert-success alert-dismissible mt-2" *ngIf="registrado">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                     <h5><i class="icon fas fa-check"></i> Registrado!</h5>
                     Su registro fue exitoso.
