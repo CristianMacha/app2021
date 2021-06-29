@@ -27,11 +27,11 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.formRegister = this.formBuilder.group({
-      matricula: new FormControl('', [Validators.required]),
+      matricula: new FormControl('', [Validators.required, Validators.maxLength(9)]),
       name: new FormControl('', [Validators.required]),
       mail: new FormControl('', [Validators.required, Validators.email]),
       carrera: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required, Validators.minLength(10)]),
     });
   }
 

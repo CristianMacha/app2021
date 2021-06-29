@@ -25,7 +25,7 @@ export interface ISemana {
 })
 export class OrganizeComponent implements OnInit {
   organizeForm!: FormGroup;
-  materiasO: MateriasO[] = [];
+  materiasO = [];
   organize!: Organize;
   matricula: string;
   semana: ISemana;
@@ -37,8 +37,8 @@ export class OrganizeComponent implements OnInit {
     private _horarioService: HorarioService
   ) {
     this.organizeForm = this.formBuilder.group({
-      hra_inicio: new FormControl('', [Validators.required]),
-      hra_final: new FormControl('', [Validators.required]),
+      hra_inicio: new FormControl('07:00', [Validators.required]),
+      hra_final: new FormControl('20:00', [Validators.required]),
     });
     this.matricula = localStorage.getItem('x-matricula');
   }
@@ -51,15 +51,33 @@ export class OrganizeComponent implements OnInit {
       matricula: this.matricula,
       materias_obligadas: this.materiasO,
     };
-    console.log(this.organize);
-
     this._horarioService.enviar(this.organize).subscribe(
       (data: any) => {
         this.semana = data;
+        this.quitarMateria();
         this.showTable = true;
       },
       (error) => console.error(error)
     );
+  }
+
+  quitarMateria() {
+
+    if (this.semana?.Lunes['7:00']) {
+      console.log(this.semana?.Lunes);
+      const mat = this.materiasO.filter(m => m.mat_id==this.semana?.Lunes['07:00']?.mat_id)
+      if(mat.length == 0) {
+        this.materiasO.push({
+          mat_id: this.semana?.Lunes['07:00']?.mat_id,
+          NRC: this.semana?.Lunes['07:00']?.NRC,
+        });
+      }
+    }
+
+    // const materia = new MateriasO();
+    // materia.mat_id = mat_id;
+    // materia.NRC = NRC;
+    // this.materiasO.push(materia);
   }
 
   aceptarPlan() {

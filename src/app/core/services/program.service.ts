@@ -14,7 +14,7 @@ export class ProgramService {
   }
 
   programaDispponible(career: string) {
-    return this.http.get(`${this.apiUrl}?carrera=${career}`, {
+    return this.http.get(`${this.apiUrl}?carrera=${career}&&profesor=true&&horarios=true`, {
       headers: { authorization: `Bearer ${localStorage.getItem('x-token')}` },
     });
   }

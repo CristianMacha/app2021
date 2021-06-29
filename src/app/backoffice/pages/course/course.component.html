@@ -5,9 +5,13 @@
     <div class="card-body">
         <ul class="list-group list-group-unbordered mb-3">
             <li class="list-group-item" *ngFor="let materia of materiasOfertadas.materias; let i = index;">
-                <b>{{materia.asignatura}} - {{materia.nrc}}</b> <a class="float-right">
-
+                <b>{{materia.asignatura}} | nrc: {{materia.nrc}}</b> <a class="float-right">
+                    <small>Prf: {{materia.profesor}}</small>
                 </a>
+                <br>
+                <div *ngFor="let lhora of materia.lugar_y_hora">
+                    Dia {{lhora.dia}}: inicio: {{lhora.hora_inicio}} - fin: {{lhora.hora_final}} | salon: {{lhora.salon || '-'}}
+                </div>
             </li>
         </ul>
     </div>
