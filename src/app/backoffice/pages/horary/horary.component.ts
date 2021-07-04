@@ -19,7 +19,7 @@ export class HoraryComponent implements OnInit {
     this._horarioService.miHorario().subscribe(
       (data: any) => {
         this.semana = data;
-        console.log(data);
+        console.log('data', data);
       },
       (error) => console.error(error)
     );

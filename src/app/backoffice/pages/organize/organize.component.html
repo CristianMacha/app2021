@@ -52,6 +52,10 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary" (click)="planificar()">Enviar materias obligatorias</button>
+                        <button class="btn btn-primary mt-3 mb-3" *ngIf="showTable" (click)="aceptarPlan()">Aceptar horario</button>
+                    </div>
                 </div>
 
             </div>
@@ -1560,3 +1564,4 @@
 </div>
 
 <button class="btn btn-primary mt-3 mb-3" *ngIf="showTable" (click)="aceptarPlan()">Aceptar horario</button> -->
+<!-- <button class="btn btn-primary mt-3 mb-3" *ngIf="showTable" (click)="aceptarPlan()">Aceptar horario</button> -->
