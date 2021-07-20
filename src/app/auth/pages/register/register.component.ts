@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
+import { MustMatch } from './confirm';
 
 @Component({
   selector: 'app-register',
@@ -27,19 +28,27 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder
   ) {
-    this.formRegister = this.formBuilder.group({
-      matricula: new FormControl('', [
-        Validators.required,
-        Validators.minLength(9),
-      ]),
-      name: new FormControl('', [Validators.required]),
-      mail: new FormControl('', [Validators.required, Validators.email]),
-      carrera: new FormControl('', [Validators.required]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10),
-      ]),
-    });
+    this.formRegister = this.formBuilder.group(
+      {
+        matricula: new FormControl('', [
+          Validators.required,
+          Validators.minLength(9),
+        ]),
+        name: new FormControl('', [Validators.required]),
+        mail: new FormControl('', [Validators.required, Validators.email]),
+        carrera: new FormControl('', [Validators.required]),
+        password: new FormControl('', [
+          Validators.required,
+          Validators.minLength(10),
+        ]),
+        confirmPassword: new FormControl('', [
+          Validators.required,
+        ]),
+      },
+      {
+        validators: MustMatch('password', 'confirmPassword'),
+      }
+    );
   }
 
   ngOnInit(): void {}

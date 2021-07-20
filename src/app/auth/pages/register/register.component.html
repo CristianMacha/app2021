@@ -1,7 +1,7 @@
 <div class="register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a routerLink="/home"><b>Horario</b>FCC</a>
         </div>
 
         <div class="card">
@@ -35,6 +35,11 @@
                         <input type="password" class="form-control" placeholder="Contraseña" formControlName="password"
                             required>
                         <span>Minimo 10 caracteres.</span>
+                    </div>
+                    <div>
+                        <label>Verificar contraseña</label>
+                        <input type="password" class="form-control" placeholder="Contraseña" formControlName="confirmPassword"
+                            required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block mt-2" [disabled]="formRegister.invalid"
                         (click)="register()">Registrarse</button>

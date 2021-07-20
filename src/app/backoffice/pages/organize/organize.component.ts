@@ -33,6 +33,7 @@ export class OrganizeComponent implements OnInit {
   materiasObligadas = [];
 
   showTable: boolean = false;
+  registrado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,9 +50,9 @@ export class OrganizeComponent implements OnInit {
 
   planificar() {
     console.log(this.materiasObligadas);
-    
-    this.materiasObligadas.forEach(element => {
-      this.materiasO.push({mat_id: element.mat_id, NRC: element.NRC})
+
+    this.materiasObligadas.forEach((element) => {
+      this.materiasO.push({ mat_id: element.mat_id, NRC: element.NRC });
     });
 
     this.organize = {
@@ -59,16 +60,26 @@ export class OrganizeComponent implements OnInit {
       matricula: this.matricula,
       materias_obligadas: this.materiasO,
     };
-    console.log(this.organize);
-    
+
+    console.log('belen', this.organize);
+    // if(this.organize.materias_obligadas) {
+    //   this.showTable = false;
+
+    // }
+
     this._horarioService.enviar(this.organize).subscribe(
       (data: any) => {
         this.semana = data.horario;
+        console.log('semana', this.semana);
+
         this.validarMaterias(data.lista_horario);
         console.log('data', data);
-        
+
         // this.quitarMateria();
         this.showTable = true;
+
+        if (this.organize.materias_obligadas.length > 0) {
+        }
       },
       (error) => console.error(error)
     );
@@ -76,19 +87,22 @@ export class OrganizeComponent implements OnInit {
 
   aceptarPlan() {
     this._horarioService.aceptarHorario(this.semana).subscribe(
-      (data) => console.log(data),
+      (data) => (this.registrado = true),
       (error) => console.error(error)
     );
   }
 
   validarMaterias(lista: any) {
-    for (let index = 0; index < lista.length; index++) {
-      const element = lista[index];
-      const existe = this.listaDeMaterias.some(
-        (m) => m.mat_id === element.mat_id
-      );
-      if (!existe) {
-        this.listaDeMaterias.push(element);
+    console.log('semana2', this.organize);
+    if (this.organize.materias_obligadas.length == 0) {
+      for (let index = 0; index < lista.length; index++) {
+        const element = lista[index];
+        const existe = this.listaDeMaterias.some(
+          (m) => m.mat_id === element.mat_id
+        );
+        if (!existe) {
+          this.listaDeMaterias.push(element);
+        }
       }
     }
   }
