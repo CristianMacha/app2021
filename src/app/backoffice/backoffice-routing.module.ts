@@ -7,6 +7,7 @@ import { HoraryComponent } from './pages/horary/horary.component';
 import { AuthGuardGuard } from '../core/guards/auth-guard.guard';
 import { PlanComponent } from './pages/plan/plan.component';
 import { OrganizeComponent } from './pages/organize/organize.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
     component: BackofficeComponent,
     canActivate: [AuthGuardGuard],
     children: [
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'course', component: CourseComponent },
       { path: 'plan', component: PlanComponent },
       { path: 'horary', component: HoraryComponent },

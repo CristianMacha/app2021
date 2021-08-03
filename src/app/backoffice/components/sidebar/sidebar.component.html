@@ -22,10 +22,18 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-        <li class="nav-header">title</li>
+        <li class="nav-header">Menus</li>
+        <li class="nav-item">
+          <a [routerLink]="['/backoffice/dashboard']" routerLinkActive="active" class="nav-link">
+            <i class="fa fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+            </p>
+          </a>
+        </li>
         <li class="nav-item">
           <a [routerLink]="['/backoffice/course']" routerLinkActive="active" class="nav-link">
-            <i class="fa fa-user"></i>
+            <i class="fa fa-book"></i>
             <p>
               Cursos ofertados por semestre
             </p>
@@ -33,7 +41,7 @@
         </li>
         <li class="nav-item">
           <a [routerLink]="['/backoffice/plan']" routerLinkActive="active" class="nav-link">
-            <i class="fa fa-book"></i>
+            <i class="fa fa-book-open"></i>
             <p>
               Tu plan academico
             </p>

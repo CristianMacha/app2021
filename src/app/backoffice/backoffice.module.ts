@@ -12,6 +12,7 @@ import { PlanComponent } from './pages/plan/plan.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { OrganizeComponent } from './pages/organize/organize.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { OrganizeComponent } from './pages/organize/organize.component';
     SidebarComponent,
     PlanComponent,
     OrganizeComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

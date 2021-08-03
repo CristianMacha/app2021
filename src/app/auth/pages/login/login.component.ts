@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.formLogin.value).subscribe(
-      (data) => {this.router.navigateByUrl('/backoffice/course')},
+      (data) => {this.router.navigateByUrl('/backoffice/dashboard')},
       (error) => console.error(error)
     );
   }

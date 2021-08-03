@@ -36,15 +36,13 @@ export class AuthService {
   login(login: IAuthLogin) {
     return this.http.post<User>(`${this.apiUrl}/login`, login).pipe(
       tap((resp) => {
-        console.log(resp);
-        
         localStorage.setItem('x-token', resp.token);
         localStorage.setItem('x-name', resp.name);
         localStorage.setItem('x-matricula', resp.matricula);
         localStorage.setItem('x-carrera', resp.carrera);
+        localStorage.setItem('x-last-updated', resp.last_updated.toString());
 
         this.user = resp;
-        console.log(resp);
       }),
       map((resp: any) => (resp.token ? true : false)),
       catchError((err) => {

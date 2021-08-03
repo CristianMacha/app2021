@@ -1,0 +1,54 @@
+<h1 class="m-0">Dashboard</h1>
+
+<div class="alert alert-warning alert-dismissible" *ngIf="activeAlert">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h5><i class="icon fas fa-info"></i> Pendiente!</h5>
+    Actualiza tu plan academico. <a [routerLink]="['../plan']" style="color: black;">Ir a plan academico</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>Cursos ofertados</h3>
+            </div>
+            <div class="icon">
+                <i class="fa fa-book"></i>
+            </div>
+            <a [routerLink]="['../course']" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>Plan academico</h3>
+            </div>
+            <div class="icon">
+                <i class="fa fa-book-open"></i>
+            </div>
+            <a [routerLink]="['../plan']" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>Crea tu horario</h3>
+            </div>
+            <div class="icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <a [routerLink]="['../organize']" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>Consulta tu horario</h3>
+            </div>
+            <div class="icon">
+                <i class="fas fa-calendar-alt"></i>
+            </div>
+            <a [routerLink]="['../horary']" class="small-box-footer">Ir <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>
