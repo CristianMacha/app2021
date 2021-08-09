@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   formLogin: FormGroup;
 
+  errorLogin: boolean = false;
+
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
@@ -30,9 +32,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
+    this.errorLogin = false;
     this.authService.login(this.formLogin.value).subscribe(
-      (data) => {this.router.navigateByUrl('/backoffice/dashboard')},
-      (error) => console.error(error)
+      (data) => {
+        data
+          ? this.router.navigateByUrl('/backoffice/dashboard')
+          : (this.errorLogin = true);
+      },
+      (error) => console.log(error)
     );
   }
 }
