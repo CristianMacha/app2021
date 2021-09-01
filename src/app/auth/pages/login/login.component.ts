@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     this.errorLogin = false;
     this.authService.login(this.formLogin.value).subscribe(
       (data) => {
+        console.log('data', data);
         data
           ? this.router.navigateByUrl('/backoffice/dashboard')
           : (this.errorLogin = true);

@@ -10,6 +10,7 @@
         </div>
     </div>
     <div class="card-body">
+        <h6 class="card-subtitle mb-2">Recibe una recomendacion de tu horario basado en tu <strong>Plan academico</strong>. </h6>
         <div class="row">
             <div class="col-md-4">
                 <form [formGroup]="organizeForm">
@@ -42,9 +43,10 @@
 
                 <div class="card card-outline card-success mt-2" *ngIf="showTable">
                     <div class="card-header">
-                        <h3 class="card-title">Material obligatorias</h3>
+                        <h3 class="card-title">Materias obligatorias</h3>
                     </div>
                     <div class="card-body">
+                        <h6 class="card-subtitle mb-2">Las materias que se consideran estrictamente para crear tu horario.</h6>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item" *ngFor="let materia of materiasObligadas; let i = index;">
                                 <b>{{materia.asignatura}}</b> <a class="float-right">
@@ -55,7 +57,7 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-primary" (click)="planificar()">Enviar materias obligatorias</button>
+                        <button class="btn btn-primary mr-1" (click)="planificar()">Enviar materias obligatorias</button>
                         <button class="btn btn-primary mt-3 mb-3" *ngIf="showTable" (click)="aceptarPlan()">Aceptar horario</button>
                     </div>
                     <div class="alert alert-success" role="alert" *ngIf="registrado">

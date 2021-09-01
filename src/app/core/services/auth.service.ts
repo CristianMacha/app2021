@@ -36,6 +36,8 @@ export class AuthService {
   login(login: IAuthLogin) {
     return this.http.post<User>(`${this.apiUrl}/login`, login).pipe(
       tap((resp) => {
+        if (resp.last_updated == null) resp.last_updated = new Date();
+        console.log(resp);
         localStorage.setItem('x-token', resp.token);
         localStorage.setItem('x-name', resp.name);
         localStorage.setItem('x-matricula', resp.matricula);
@@ -46,6 +48,7 @@ export class AuthService {
       }),
       map((resp: any) => (resp.token ? true : false)),
       catchError((err) => {
+        console.error(err);
         localStorage.clear();
         return of(false);
       })
